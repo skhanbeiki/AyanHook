@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
@@ -45,6 +46,7 @@ import androidx.compose.ui.unit.sp
 import ir.ayantech.ayanhook.themes.AppColors
 import ir.ayantech.ayanhook.themes.AppImages
 import ir.ayantech.ayanhook.themes.AppStrings
+import ir.ayantech.ayanhook.utils.AdBannerContainer
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
@@ -99,6 +101,13 @@ fun MainScreenMobile() {
                     )
                     .padding(horizontal = 16.dp)
             ) {
+
+                AdBannerContainer(
+                    containerKey = "6faf1976-4ee8-433d-aef4-9e1501472213",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = AppStrings.STRING_1,

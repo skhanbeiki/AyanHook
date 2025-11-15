@@ -40,24 +40,6 @@ kotlin {
     wasmJs {
         browser()
         binaries.executable()
-//        outputModuleName.set("composeApp")
-//        browser {
-//            val rootDirPath = project.rootDir.path
-//            val projectDirPath = project.projectDir.path
-//            commonWebpackConfig {
-//                outputFileName = "composeApp.js"
-//                cssSupport {
-//                    enabled = true
-//                }
-//                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-//                    static = (static ?: mutableListOf()).apply {
-//                        add(rootDirPath)
-//                        add(projectDirPath)
-//                    }
-//                }
-//            }
-//        }
-//        binaries.executable()
     }
     sourceSets {
         androidMain.dependencies {
@@ -67,6 +49,7 @@ kotlin {
 
             implementation(libs.androidx.datastore)
             implementation(libs.androidx.datastore.preferences)
+            implementation("com.github.AyanTech:AyanAds:1.1.13")
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

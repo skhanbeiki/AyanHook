@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ayan_ads_native_margin_140">140dp</dimen>
+    <dimen name="ayan_ads_native_margin_80">80dp</dimen>
+    <dimen name="ayan_ads_native_margin_56">56dp</dimen>
+    <dimen name="ayan_ads_native_margin_48">48dp</dimen>
+    <dimen name="ayan_ads_native_margin_45">45dp</dimen>
+    <dimen name="ayan_ads_native_margin_32">32dp</dimen>
+    <dimen name="ayan_ads_native_margin_28">28dp</dimen>
+    <dimen name="ayan_ads_native_margin_24">24dp</dimen>
+    <dimen name="ayan_ads_native_margin_16">16dp</dimen>
+    <dimen name="ayan_ads_native_margin_12">12dp</dimen>
+    <dimen name="ayan_ads_native_margin_10">10dp</dimen>
+    <dimen name="ayan_ads_native_margin_8">8dp</dimen>
+    <dimen name="ayan_ads_native_margin_8sdp">8dp</dimen>
+    <dimen name="ayan_ads_native_margin_6">6dp</dimen>
+    <dimen name="ayan_ads_native_margin_4">4dp</dimen>
+    <dimen name="ayan_ads_native_margin_2">2dp</dimen>
+    <dimen name="ayan_ads_native_text_14">14sp</dimen>
+    <dimen name="ayan_ads_native_text_12">12sp</dimen>
+    <dimen name="ayan_ads_native_text_10">10sp</dimen>
+</resources>
