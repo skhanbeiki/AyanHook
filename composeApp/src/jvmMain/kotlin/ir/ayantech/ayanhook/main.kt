@@ -5,16 +5,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import ir.ayantech.ayanhook.di.appModule
-import ir.ayantech.ayanhook.di.JvmModule
-import org.koin.core.context.startKoin
+import ir.ayantech.ayanhook.di.initKoin
 import java.awt.Dimension
 import javax.swing.SwingUtilities
 
 fun main() {
-    startKoin {
-        modules(appModule, JvmModule)
-    }
+    initKoin()
     application {
         Window(
             onCloseRequest = ::exitApplication,

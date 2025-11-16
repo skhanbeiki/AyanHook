@@ -33,7 +33,7 @@ actual fun AdBannerContainer(
                     AyanAdManager.initialize(
                         appCompatActivity = activity,
                         appMarket = AppMarket.CafeBazaar,
-                        appKey = "4ded2a241d550d95812d179653b8fd7be26d8bfc33b196c4572ee5a1cd2e6f28",
+                        appKey = "8fb65f6207d3a3541d8cbbb474ea45f6969fa9b6a63af3859d9804247f419d0b",
                         onSuccess = {
                             val adView = LayoutInflater.from(ctx)
                                 .inflate(R.layout.ayan_ads_native_layout_3, null) as ViewGroup

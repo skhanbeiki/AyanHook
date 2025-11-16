@@ -24,6 +24,7 @@ import ayanhook.composeapp.generated.resources.Res
 import ayanhook.composeapp.generated.resources.compose_multiplatform
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
+import ir.ayantech.ayanhook.di.initKoin
 import ir.ayantech.ayanhook.screen.main.MainScreen
 import ir.ayantech.ayanhook.themes.AppTheme
 import ir.ayantech.ayanhook.utils.AppLanguage
@@ -33,10 +34,10 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 @Preview
 fun App() {
-//    val appViewModel = koinViewModel<AppViewModel>()
-//    val language by appViewModel.language.collectAsState(initial = null)
-//    if (language == null) return
-    val language = AppLanguage.FA
+    val appViewModel = koinViewModel<AppViewModel>()
+    val language by appViewModel.language.collectAsState(initial = null)
+    if (language == null) return
+
     LaunchedEffect(language) {
         LanguageManager.currentLanguage = language ?: AppLanguage.FA
     }

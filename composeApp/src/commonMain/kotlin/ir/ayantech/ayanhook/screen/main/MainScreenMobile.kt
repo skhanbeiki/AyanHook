@@ -103,7 +103,7 @@ fun MainScreenMobile() {
             ) {
 
                 AdBannerContainer(
-                    containerKey = "6faf1976-4ee8-433d-aef4-9e1501472213",
+                    containerKey = "ccb7504c-b986-4448-ab8b-2059e0e78f5a",
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentHeight()

@@ -131,6 +131,12 @@ android {
     val packageNameAe = "ae.ayanco."
 
     productFlavors {
+        create("passport") {
+            dimension = "variant"
+            applicationId = "ir.ayantech.passport"
+            versionCode = 11
+            versionName = "1.1.1"
+        }
         create("waterbillinquiry$cafebazaar") {
             dimension = "variant"
             applicationId = "${packageNameIr}waterbillinquiry"
@@ -196,6 +202,9 @@ android {
             res.srcDirs("src\\androidMain\\gasbillinquiry\\res")
         }
         getByName("gasbillinquiry$playstore") {
+            res.srcDirs("src\\androidMain\\gasbillinquiry\\res")
+        }
+        getByName("passport") {
             res.srcDirs("src\\androidMain\\gasbillinquiry\\res")
         }
     }
