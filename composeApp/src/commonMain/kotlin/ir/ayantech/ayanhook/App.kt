@@ -17,14 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-import ayanhook.composeapp.generated.resources.Res
-import ayanhook.composeapp.generated.resources.compose_multiplatform
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
-import ir.ayantech.ayanhook.di.initKoin
 import ir.ayantech.ayanhook.screen.main.MainScreen
 import ir.ayantech.ayanhook.themes.AppTheme
 import ir.ayantech.ayanhook.utils.AppLanguage
