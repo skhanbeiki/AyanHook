@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.utils.dataStore
+package ir.ayantech.ayanhook.data.local.prefs
 
 class PreferenceDataStoreHelper(val storage: PreferenceStorage) {
     suspend fun saveString(key: String, value: String) = storage.saveString(key, value)

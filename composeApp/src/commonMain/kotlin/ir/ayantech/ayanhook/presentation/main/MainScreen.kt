@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.screen.main
+package ir.ayantech.ayanhook.presentation.main
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.runtime.Composable

@@ -3,8 +3,8 @@ package ir.ayantech.ayanhook
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ir.ayantech.ayanhook.utils.AppLanguage
-import ir.ayantech.ayanhook.utils.dataStore.PreferenceDataStoreHelper
-import ir.ayantech.ayanhook.utils.dataStore.PreferencesKeys
+import ir.ayantech.ayanhook.data.local.prefs.PreferenceDataStoreHelper
+import ir.ayantech.ayanhook.data.local.prefs.PreferencesKeys
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

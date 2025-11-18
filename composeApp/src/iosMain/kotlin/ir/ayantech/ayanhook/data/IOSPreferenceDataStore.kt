@@ -2,7 +2,7 @@ package ir.ayantech.ayanhook.data
 
 
 import com.russhwolf.settings.Settings
-import ir.ayantech.ayanhook.utils.dataStore.PreferenceStorage
+import ir.ayantech.ayanhook.data.local.prefs.PreferenceStorage
 
 class IOSPreferenceDataStore : PreferenceStorage {
     private val settings = Settings()

@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.utils.dataStore
+package ir.ayantech.ayanhook.data.local.prefs
 
 object PreferencesKeys {
     const val SESSION_TOKEN = "session_token"

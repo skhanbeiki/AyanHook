@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.themes
+package ir.ayantech.ayanhook.presentation.themes
 
 import androidx.compose.ui.graphics.Color
 import ir.ayantech.ayanhook.PlatformHolder

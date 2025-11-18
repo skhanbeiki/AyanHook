@@ -1,6 +1,5 @@
 package ir.ayantech.ayanhook
 
-import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {
     override val platform: PlatformType = PlatformType.IOS

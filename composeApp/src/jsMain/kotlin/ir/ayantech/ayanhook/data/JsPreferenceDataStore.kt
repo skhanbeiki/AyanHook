@@ -1,7 +1,7 @@
 package ir.ayantech.ayanhook.data
 
 import kotlinx.browser.localStorage
-import ir.ayantech.ayanhook.utils.dataStore.PreferenceStorage
+import ir.ayantech.ayanhook.data.local.prefs.PreferenceStorage
 
 class JsPreferenceDataStore : PreferenceStorage {
     override suspend fun saveString(key: String, value: String) {

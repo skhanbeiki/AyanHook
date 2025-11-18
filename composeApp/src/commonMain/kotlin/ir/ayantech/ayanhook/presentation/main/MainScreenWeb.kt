@@ -1,11 +1,11 @@
-package ir.ayantech.ayanhook.screen.main
-
+package ir.ayantech.ayanhook.presentation.main
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,8 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
@@ -24,7 +22,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,99 +29,81 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.BlendMode.Companion.Color
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ir.ayantech.ayanhook.themes.AppColors
-import ir.ayantech.ayanhook.themes.AppImages
-import ir.ayantech.ayanhook.themes.AppStrings
-import ir.ayantech.ayanhook.utils.AdBannerContainer
+import ir.ayantech.ayanhook.presentation.themes.AppColors
+import ir.ayantech.ayanhook.presentation.themes.AppImages
+import ir.ayantech.ayanhook.presentation.themes.AppStrings
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
-@Preview(name = "Mobile Layout", widthDp = 390, heightDp = 844)
+@Preview(name = "Web Layout", widthDp = 1440, heightDp = 900)
 @Composable
-fun MainScreenMobile() {
+fun MainScreenWeb() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = AppColors.Primary,
+        containerColor = AppColors.Background,
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize()
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 120.dp, vertical = 64.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(0.3f),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.Start
             ) {
                 Image(
                     painter = AppImages.logo,
                     contentDescription = "Logo",
-                    modifier = Modifier.size(72.dp)
+                    modifier = Modifier.size(120.dp)
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(24.dp))
                 Text(
-                    modifier = Modifier.fillMaxWidth(),
                     text = AppStrings.TITLE,
-                    color = AppColors.White,
-                    style = MaterialTheme.typography.bodyLarge,
-                    textAlign = TextAlign.Center,
-                    fontSize = 18.sp,
+                    color = AppColors.Primary,
+                    style = MaterialTheme.typography.bodyMedium,
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    modifier = Modifier.fillMaxWidth(),
                     text = AppStrings.DESCRIPTION,
-                    color = AppColors.White,
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Center,
-                    fontSize = 14.sp,
+                    color = AppColors.TextPrimary,
+                    style = MaterialTheme.typography.bodyLarge,
                 )
             }
+
+            Spacer(modifier = Modifier.width(64.dp))
+
+            // بخش راست: فرم
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(0.7f)
+                    .weight(1f)
                     .background(
-                        color = AppColors.Background,
-                        shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
+                        color = AppColors.White,
+                        shape = RoundedCornerShape(24.dp)
                     )
-                    .padding(horizontal = 16.dp)
+                    .padding(48.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
-                AdBannerContainer(
-                    containerKey = "ccb7504c-b986-4448-ab8b-2059e0e78f5a",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = AppStrings.STRING_1,
-                    color = AppColors.Black,
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Start,
-                    fontSize = 14.sp,
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-
                 var nationalCode by rememberSaveable { mutableStateOf("") }
                 var isValid by remember { mutableStateOf(false) }
 
+                Text(
+                    text = AppStrings.STRING_1,
+                    color = AppColors.Black,
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Spacer(modifier = Modifier.height(24.dp))
+
                 BasicTextField(
                     value = nationalCode,
-                    onValueChange = { it->
-                        println("Error confirmed -> $it")
+                    onValueChange = {
                         nationalCode = it.take(10)
                         isValid = it.length >= 10
                     },
@@ -132,60 +111,53 @@ fun MainScreenMobile() {
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(48.dp)
+                        .height(56.dp)
                         .border(
                             width = 1.dp,
                             color = AppColors.Black,
                             shape = RoundedCornerShape(12.dp)
-                        ),
+                        )
+                        .padding(horizontal = 8.dp),
                     textStyle = TextStyle(
                         color = AppColors.Black,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Normal,
+                        fontSize = 18.sp,
                         textAlign = TextAlign.Center
                     ),
                     decorationBox = { innerTextField ->
-                        if (nationalCode.isEmpty()) {
-                            Text(
-                                modifier = Modifier.wrapContentSize(),
-                                text = AppStrings.NATIONAL_CODE,
-                                color = AppColors.Grey_3,
-                                fontSize = 14.sp,
-                                style = MaterialTheme.typography.bodySmall,
-                                textAlign = TextAlign.Center
-                            )
-                        }
                         Box(
-                            modifier = Modifier
-                                .fillMaxSize(),
+                            modifier = Modifier.fillMaxSize(),
                             contentAlignment = Alignment.Center
                         ) {
+                            if (nationalCode.isEmpty()) {
+                                Text(
+                                    text = AppStrings.NATIONAL_CODE,
+                                    color = AppColors.Grey_3,
+                                    fontSize = 16.sp,
+                                )
+                            }
                             innerTextField()
                         }
                     }
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(32.dp))
 
                 Button(
-                    onClick = {
-                    },
+                    onClick = {},
                     enabled = isValid,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(48.dp),
+                        .height(56.dp),
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = AppColors.Primary,
-                        contentColor = AppColors.White,
                         disabledContainerColor = AppColors.Grey_1
                     )
                 ) {
                     Text(
                         text = AppStrings.Inquiry,
-                        style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center,
-                        color = if (isValid) AppColors.Black else AppColors.White
+                        fontSize = 18.sp,
+                        color = if (isValid) AppColors.White else AppColors.Black
                     )
                 }
             }

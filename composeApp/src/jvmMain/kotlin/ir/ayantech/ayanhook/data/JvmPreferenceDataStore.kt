@@ -1,7 +1,7 @@
 package ir.ayantech.ayanhook.data
 
 import java.util.prefs.Preferences
-import ir.ayantech.ayanhook.utils.dataStore.PreferenceStorage
+import ir.ayantech.ayanhook.data.local.prefs.PreferenceStorage
 
 class JvmPreferenceDataStore : PreferenceStorage {
     private val prefs = Preferences.userRoot().node("AyanHookPrefs")

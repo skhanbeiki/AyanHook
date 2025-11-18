@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.screen.main
+package ir.ayantech.ayanhook.presentation.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,9 +36,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import ir.ayantech.ayanhook.themes.AppColors
-import ir.ayantech.ayanhook.themes.AppImages
-import ir.ayantech.ayanhook.themes.AppStrings
+import ir.ayantech.ayanhook.presentation.themes.AppColors
+import ir.ayantech.ayanhook.presentation.themes.AppImages
+import ir.ayantech.ayanhook.presentation.themes.AppStrings
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 

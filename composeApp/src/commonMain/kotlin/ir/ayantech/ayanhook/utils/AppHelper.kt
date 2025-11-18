@@ -1,6 +1,6 @@
 package ir.ayantech.ayanhook.utils
 
-import ir.ayantech.ayanhook.themes.AppStrings
+import ir.ayantech.ayanhook.presentation.themes.AppStrings
 
 
 fun formatPrice(price: Long): String {
