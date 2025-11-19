@@ -1,9 +1,9 @@
 package ir.ayantech.ayanhook.di
 
 import ir.ayantech.ayanhook.AppViewModel
-import ir.ayantech.ayanhook.data.remote.api.ApiService
-import ir.ayantech.ayanhook.data.remote.api.ApiServiceImpl
-import ir.ayantech.ayanhook.data.remote.api.createHttpClient
+import ir.ayantech.ayanhook.data.ApiService
+import ir.ayantech.ayanhook.data.ApiServiceImpl
+import ir.ayantech.ayanhook.data.createHttpClient
 import ir.ayantech.ayanhook.data.repository.LoginRepository
 import ir.ayantech.ayanhook.data.repository.LoginRepositoryImpl
 import ir.ayantech.ayanhook.presentation.login.LoginViewModel

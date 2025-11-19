@@ -1,6 +1,6 @@
 package ir.ayantech.ayanhook.data.repository
 
-import ir.ayantech.ayanhook.data.remote.api.ApiService
+import ir.ayantech.ayanhook.data.ApiService
 import ir.ayantech.ayanhook.data.remote.models.baseModels.BaseResponse
 import ir.ayantech.ayanhook.data.remote.models.SendOtpParameters
 import ir.ayantech.ayanhook.data.remote.models.SendOtpResponseParameters

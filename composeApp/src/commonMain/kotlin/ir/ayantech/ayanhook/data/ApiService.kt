@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.data.remote.api
+package ir.ayantech.ayanhook.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
