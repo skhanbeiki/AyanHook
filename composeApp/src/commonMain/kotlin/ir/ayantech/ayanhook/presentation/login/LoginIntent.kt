@@ -6,5 +6,4 @@ sealed class LoginIntent {
     data class SendUsername(val parameters: SendOtpParameters) : LoginIntent()
     data class SendOtp(val parameters: SendOtpParameters) : LoginIntent()
     data class SaveIsLogin(val key: String, val session: Boolean) : LoginIntent()
-    data object ClearError : LoginIntent()
 }

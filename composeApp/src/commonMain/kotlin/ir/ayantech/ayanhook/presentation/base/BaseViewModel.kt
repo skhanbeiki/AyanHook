@@ -20,7 +20,7 @@ abstract class BaseViewModel() : ScreenModel {
         _isLoading.value = false
     }
 
-    fun setError(message: String) {
+    fun setError(message: String?) {
         _error.value = message
     }
 

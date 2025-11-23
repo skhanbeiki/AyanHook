@@ -91,6 +91,10 @@ kotlin {
         wasmJsMain.dependencies {
             implementation("io.ktor:ktor-client-js:3.3.1")
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+//            implementation("io.mockk:mockk-common:1.14.6")
+        }
     }
 }
 

@@ -27,9 +27,7 @@ class ApiServiceImpl(
 
     override suspend fun loginService(parameters: SendOtpParameters): BaseResponse<SendOtpResponseParameters> {
         val session = prefHelper.readString(PreferencesKeys.SESSION_TOKEN)
-        if (session == null) {
-            throw IllegalStateException("Session token is missing")
-        }
+            ?: throw IllegalStateException("Session token is missing")
 
         val requestBody = BaseRequest(
             identity = Identity(token = session),

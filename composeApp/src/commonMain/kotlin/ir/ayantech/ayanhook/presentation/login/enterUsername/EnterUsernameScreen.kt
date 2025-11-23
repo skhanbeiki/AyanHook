@@ -23,15 +23,13 @@ class EnterUsernameScreen : Screen {
             viewModel.onIntent(LoginIntent.SendUsername(SendOtpParameters("09119009338")))
         }
 
-        if (uiState.isLoading) {
-
-        }
-
-        uiState.error?.let {
-//            ErrorView(it) {
-//                viewModel.onIntent(LoginIntent.ClearError)
-//            }
-        }
+//        if (uiState.isLoading) {
+//
+//        }
+//
+//        uiState.error?.let {
+//
+//        }
 
         uiState.sendUsernameResponse?.let {
 

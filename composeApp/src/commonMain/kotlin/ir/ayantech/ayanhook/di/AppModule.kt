@@ -15,11 +15,10 @@ import org.koin.dsl.module
 val appModule: Module = module {
     single { createHttpClient() }
     single<ApiService> { ApiServiceImpl(get(), get()) }
-
     single { PreferenceDataStoreHelper(get()) }
+    viewModel { AppViewModel(get()) }
 
     single<LoginRepository> { LoginRepositoryImpl(get()) }
     factory { LoginViewModel(get(), get()) }
 
-    viewModel { AppViewModel(get()) }
 }
