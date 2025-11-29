@@ -1,7 +1,7 @@
 package ir.ayantech.ayanhook.di
 
-import ir.ayantech.ayanhook.data.WasmPreferenceDataStore
-import ir.ayantech.ayanhook.data.local.prefs.PreferenceStorage
+import ir.ayantech.ayanhook.data.local.preferences.WasmPreferenceDataStore
+import ir.ayantech.ayanhook.data.local.preferences.PreferenceStorage
 import org.koin.dsl.module
 
 val wasmModule = module {

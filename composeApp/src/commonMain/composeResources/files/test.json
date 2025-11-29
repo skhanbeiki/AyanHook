@@ -1,0 +1,30 @@
+[
+  {
+    "name": "waterbillinquiry",
+    "applicationName": "VasHookWaterBillInquiry",
+    "applicationNameForPishkhan": "PishkhanWaterBillInquiry",
+    "host": "ir.ayantech.waterbillinquiry",
+    "schema": "waterbillinquiry",
+    "baseUrl": "https://core.pishkhan24.ayantech.ir/webservices/Core.svc/",
+    "servicesBaseUrl": "https://services.pishkhan24.ayantech.ir/webservices/services.svc/",
+    "versionControllingBaseUrl": "https://versioncontrol.infra.ayantech.ir/WebServices/App.svc/",
+    "pushNotificationUrl": "https://pushnotification.infra.ayantech.ir/WebServices/App.svc/",
+    "colors": {
+      "primary": "#2196F3",
+      "background": "#E3F2FD",
+      "textPrimary": "#0D47A1",
+      "grey1": "#9A090B",
+      "grey3": "#616161"
+    },
+    "strings": {
+      "title": {"FA": "استعلام قبض آب", "EN": "Water Bill Inquiry"},
+      "description": {"FA": "مشاهده و پرداخت قبض آب شما", "EN": "View and pay your water bill"},
+      "rial": {"FA": " ریال", "EN": " Rial"},
+      "nationalCode": {"FA": "کد ملی", "EN": "National ID"}
+    },
+    "images": {
+      "logo": "ic_water_logo",
+      "background": "ic_water_background"
+    }
+  }
+]

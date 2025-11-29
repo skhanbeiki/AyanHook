@@ -1,69 +1,54 @@
 package ir.ayantech.ayanhook.presentation.login
 
-import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.screenModelScope
-import ir.ayantech.ayanhook.presentation.login.LoginState
-import ir.ayantech.ayanhook.data.remote.models.SendOtpParameters
-import ir.ayantech.ayanhook.data.repository.LoginRepository
-import ir.ayantech.ayanhook.presentation.login.LoginIntent
-import ir.ayantech.ayanhook.data.local.prefs.PreferenceDataStoreHelper
-import ir.ayantech.ayanhook.presentation.base.BaseViewModel
+
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import ir.ayantech.ayanhook.domain.usecase.LoginUseCase
+import kotlin.coroutines.CoroutineContext
 
 class LoginViewModel(
-    private val repository: LoginRepository,
-    private val prefHelper: PreferenceDataStoreHelper
-) : BaseViewModel() {
+    private val loginUseCase: LoginUseCase,
+    private val ioDispatcher: CoroutineDispatcher
+) {
+    private val scope = CoroutineScope(SupervisorJob() + ioDispatcher)
 
     private val _state = MutableStateFlow(LoginState())
-    val state: StateFlow<LoginState> = _state
+    val state: StateFlow<LoginState> = _state.asStateFlow()
 
-    fun onIntent(intent: LoginIntent) {
+    private val _effect = MutableSharedFlow<LoginEffect>(extraBufferCapacity = 4)
+    val effect: SharedFlow<LoginEffect> = _effect.asSharedFlow()
+
+    fun process(intent: LoginIntent) {
         when (intent) {
-            is LoginIntent.SendUsername -> sendUsername(intent.parameters)
-            is LoginIntent.SendOtp -> sendOtp(intent.parameters)
-            is LoginIntent.SaveIsLogin -> saveIsLogin(intent.key, intent.session)
+            is LoginIntent.EnterUsername -> _state.update { it.copy(username = intent.username) }
+            is LoginIntent.EnterPassword -> _state.update { it.copy(password = intent.password) }
+            is LoginIntent.Submit -> submit()
         }
     }
 
-    private fun sendUsername(parameters: SendOtpParameters) {
-        screenModelScope.launch {
-            showLoading()
+    private fun submit() {
+        val username = state.value.username
+        val password = state.value.password
+
+        if (username.isBlank() || password.isBlank()) {
+            scope.launch { _effect.emit(LoginEffect.ShowToast("Username and password cannot be empty")) }
+            return
+        }
+
+        scope.launch {
+            _state.update { it.copy(loading = true, userMessage = null) }
             try {
-                val result = repository.loginService(parameters)
-                _state.update { it.copy(sendUsernameResponse = result) }
-            } catch (e: Exception) {
-                setError(e.message)
-            } finally {
-                hideLoading()
-                clearError()
+                val user = loginUseCase(username, password)
+                _state.update { it.copy(loading = false, userMessage = "Welcome ${user.username}") }
+                _effect.emit(LoginEffect.ShowToast("Login success"))
+                _effect.emit(LoginEffect.Navigate("home")) // example
+            } catch (e: Throwable) {
+                _state.update { it.copy(loading = false) }
+                _effect.emit(LoginEffect.ShowToast("Login failed: ${e.message ?: "unknown"}"))
             }
-        }
-    }
-
-    private fun sendOtp(parameters: SendOtpParameters) {
-        screenModelScope.launch {
-            showLoading()
-            try {
-                val result = repository.loginService(parameters)
-                _state.update { it.copy(sendOtpResponse = result) }
-            } catch (e: Exception) {
-                setError(e.message)
-            } finally {
-                hideLoading()
-                clearError()
-            }
-        }
-    }
-
-    private fun saveIsLogin(key: String, session: Boolean) {
-        screenModelScope.launch {
-            prefHelper.saveBoolean(key, session)
         }
     }
 }

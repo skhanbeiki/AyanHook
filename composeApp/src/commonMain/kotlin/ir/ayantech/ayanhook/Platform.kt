@@ -1,5 +1,6 @@
 package ir.ayantech.ayanhook
 
+
 interface Platform {
     val platform: PlatformType
     val name: String

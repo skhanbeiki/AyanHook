@@ -2,7 +2,6 @@ package ir.ayantech.ayanhook.utils
 
 import ir.ayantech.ayanhook.presentation.themes.AppStrings
 
-
 fun formatPrice(price: Long): String {
     val str = price.toString()
     val sb = StringBuilder()

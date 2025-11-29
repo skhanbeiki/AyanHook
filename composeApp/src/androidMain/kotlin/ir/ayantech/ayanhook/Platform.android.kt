@@ -1,5 +1,7 @@
 package ir.ayantech.ayanhook
 
+import kotlin.text.contains
+
 class AndroidPlatform : Platform {
     override var platform: PlatformType = PlatformType.Android
     override var name: String = ""

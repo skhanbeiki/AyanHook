@@ -1,24 +1,18 @@
 package ir.ayantech.ayanhook.di
 
-import ir.ayantech.ayanhook.AppViewModel
-import ir.ayantech.ayanhook.data.ApiService
-import ir.ayantech.ayanhook.data.ApiServiceImpl
-import ir.ayantech.ayanhook.data.createHttpClient
-import ir.ayantech.ayanhook.data.repository.LoginRepository
-import ir.ayantech.ayanhook.data.repository.LoginRepositoryImpl
-import ir.ayantech.ayanhook.presentation.login.LoginViewModel
-import ir.ayantech.ayanhook.data.local.prefs.PreferenceDataStoreHelper
-import org.koin.core.module.Module
-import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
+import ir.ayantech.ayanhook.data.remote.impl.KtorAuthApi
+import ir.ayantech.ayanhook.data.repository.AuthRepositoryImpl
+import ir.ayantech.ayanhook.domain.usecase.LoginUseCase
+import ir.ayantech.ayanhook.domain.repository.AuthRepository
+import ir.ayantech.ayanhook.presentation.login.LoginViewModel
+import kotlinx.coroutines.Dispatchers
+import ir.ayantech.ayanhook.data.remote.AuthApi
 
-val appModule: Module = module {
-    single { createHttpClient() }
-    single<ApiService> { ApiServiceImpl(get(), get()) }
-    single { PreferenceDataStoreHelper(get()) }
-    viewModel { AppViewModel(get()) }
+val appModule = module {
 
-    single<LoginRepository> { LoginRepositoryImpl(get()) }
-    factory { LoginViewModel(get(), get()) }
-
+    single { KtorAuthApi(get(), baseUrl = "https://example.com") as AuthApi }
+    single<AuthRepository> { AuthRepositoryImpl(get()) }
+    factory { LoginUseCase(get()) }
+    factory { LoginViewModel(get(), Dispatchers.Default) }
 }
