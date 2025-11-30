@@ -1,9 +1,0 @@
-package ir.ayantech.ayanhook.data.dto
-
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class LoginRequestDto(
-    val username: String,
-    val password: String
-)

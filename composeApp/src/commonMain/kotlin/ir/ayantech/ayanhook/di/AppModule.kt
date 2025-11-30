@@ -1,13 +1,13 @@
 package ir.ayantech.ayanhook.di
 
 import org.koin.dsl.module
-import ir.ayantech.ayanhook.data.remote.impl.KtorAuthApi
+import ir.ayantech.ayanhook.data.remote.auth.KtorAuthApi
 import ir.ayantech.ayanhook.data.repository.AuthRepositoryImpl
-import ir.ayantech.ayanhook.domain.usecase.LoginUseCase
+import ir.ayantech.ayanhook.domain.usecase.auth.LoginUseCase
 import ir.ayantech.ayanhook.domain.repository.AuthRepository
-import ir.ayantech.ayanhook.presentation.login.LoginViewModel
+import ir.ayantech.ayanhook.presentation.features.login.LoginViewModel
 import kotlinx.coroutines.Dispatchers
-import ir.ayantech.ayanhook.data.remote.AuthApi
+import ir.ayantech.ayanhook.data.remote.auth.AuthApi
 
 val appModule = module {
 
