@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.data.remote.auth
+package ir.ayantech.ayanhook.data.datasource.remote.auth
 
 import ir.ayantech.ayanhook.data.dto.auth.LoginRequestDto
 import ir.ayantech.ayanhook.data.dto.auth.LoginResponseDto

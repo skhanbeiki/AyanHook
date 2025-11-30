@@ -1,4 +1,4 @@
-package ir.ayantech.ayanhook.data.local.preferences
+package ir.ayantech.ayanhook.data.datasource.local.preferences
 
 interface PreferenceStorage {
     suspend fun saveString(key: String, value: String)

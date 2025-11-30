@@ -1,6 +1,7 @@
-package ir.ayantech.ayanhook.data.local.preferences
+package ir.ayantech.ayanhook.data.datasource.local.preferences
 
-class PreferenceDataStoreHelper(val storage: PreferenceStorage) {
+class PreferenceDataStoreHelper(private val storage: PreferenceStorage) {
+
     suspend fun saveString(key: String, value: String) = storage.saveString(key, value)
     suspend fun readString(key: String): String? = storage.readString(key)
 

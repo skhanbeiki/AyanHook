@@ -1,8 +1,8 @@
-package ir.ayantech.ayanhook.data.local.preferences
+package ir.ayantech.ayanhook.data.datasource.local.preferences
 
 import kotlinx.browser.localStorage
 
-class JsPreferenceDataStore : PreferenceStorage {
+class WasmPreferenceDataStore : PreferenceStorage {
     override suspend fun saveString(key: String, value: String) {
         localStorage.setItem(key, value)
     }

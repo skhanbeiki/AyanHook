@@ -1,9 +1,8 @@
 package ir.ayantech.ayanhook.di
 
-import ir.ayantech.ayanhook.data.local.preferences.IOSPreferenceDataStore
-import ir.ayantech.ayanhook.data.local.preferences.PreferenceStorage
+import ir.ayantech.ayanhook.data.datasource.local.preferences.IOSPreferenceStorage
 import org.koin.dsl.module
 
 val iosModule = module {
-    single<PreferenceStorage> { IOSPreferenceDataStore() }
+    single<IOSPreferenceStorage> { IOSPreferenceStorage() }
 }

@@ -13,11 +13,10 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
-
-    var json by remember { mutableStateOf("") }
-    LaunchedEffect(Unit) {
-        json = loadJsonFile("water")
-        val config = Json.decodeFromString<ProjectConfig>(json)
-
-    }
+//    var json by remember { mutableStateOf("") }
+//    LaunchedEffect(Unit) {
+//        json = loadJsonFile("water")
+//        val config = Json.decodeFromString<ProjectConfig>(json)
+//
+//    }
 }
