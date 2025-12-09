@@ -61,7 +61,6 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@id/ad_icon"
             android:layout_width="@dimen/ayan_ads_native_margin_28"
             android:layout_height="@dimen/ayan_ads_native_margin_28"
             android:layout_margin="@dimen/ayan_ads_native_margin_6" />

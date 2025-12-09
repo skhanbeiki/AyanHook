@@ -12,6 +12,7 @@ class AuthRepositoryImpl(
     private val preference: PreferenceStorage
 ) : AuthRepository {
     override suspend fun login(username: String, password: String): User {
+
         val dto = LoginRequestDto(username, password)
         val res = api.login(dto)
         return res.toDomain()

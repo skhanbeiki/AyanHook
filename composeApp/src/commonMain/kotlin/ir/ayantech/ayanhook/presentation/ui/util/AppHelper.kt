@@ -1,6 +1,14 @@
 package ir.ayantech.ayanhook.presentation.ui.util
 
+import ayanhook.composeapp.generated.resources.Res
 import ir.ayantech.ayanhook.presentation.ui.theme.AppStrings
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+
+@OptIn(ExperimentalResourceApi::class)
+suspend fun loadJsonFile(name: String): String {
+    val bytes = Res.readBytes("files/$name.json")
+    return bytes.decodeToString()
+}
 
 fun formatPrice(price: Long): String {
     val str = price.toString()

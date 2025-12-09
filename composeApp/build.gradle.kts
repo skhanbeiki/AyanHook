@@ -1,7 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -28,9 +27,7 @@ kotlin {
             isStatic = true
         }
     }
-
     jvm()
-
     js(IR) {
         browser()
         binaries.executable()
@@ -45,15 +42,9 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-//            implementation(libs.ktor.client.okhttp)
-
             implementation(libs.androidx.datastore)
             implementation(libs.androidx.datastore.preferences)
-            implementation("com.github.AyanTech:AyanAds:1.1.13")
-        }
-        iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
-            implementation(libs.multiplatform.settings.no.arg)
+//            implementation(libs.ayanads)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -82,18 +73,25 @@ kotlin {
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.koin)
             implementation(libs.voyager.transitions)
+
+            implementation(libs.arrow.core)
+            implementation(libs.arrow.fx.coroutines)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+            implementation(libs.multiplatform.settings.no.arg)
         }
         jvmMain.dependencies {
-            implementation("io.ktor:ktor-client-cio:3.3.1")
+            implementation(libs.ktor.client.cio)
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
         }
         wasmJsMain.dependencies {
-            implementation("io.ktor:ktor-client-js:3.3.1")
+            implementation(libs.ktor.client.js)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
-//            implementation("io.mockk:mockk-common:1.14.6")
         }
     }
 }

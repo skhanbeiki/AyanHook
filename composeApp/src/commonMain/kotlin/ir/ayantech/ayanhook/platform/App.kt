@@ -1,22 +1,31 @@
 package ir.ayantech.ayanhook.platform
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import kotlinx.serialization.json.Json
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.transitions.SlideTransition
+import ir.ayantech.ayanhook.presentation.features.inquiry.InquiryScreen
+import ir.ayantech.ayanhook.presentation.ui.theme.AppTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 
 @Composable
 @Preview
 fun App() {
-//    var json by remember { mutableStateOf("") }
-//    LaunchedEffect(Unit) {
-//        json = loadJsonFile("water")
-//        val config = Json.decodeFromString<ProjectConfig>(json)
-//
-//    }
+    AppTheme {
+        Scaffold(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black),
+        ) { innerPadding ->
+            Navigator(InquiryScreen()) { navigator ->
+                SlideTransition(navigator)
+            }
+        }
+    }
 }
