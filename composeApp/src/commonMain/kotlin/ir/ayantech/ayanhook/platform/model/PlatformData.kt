@@ -4,7 +4,7 @@ package ir.ayantech.ayanhook.platform.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PlatformDate(
+data class PlatformData(
     val platform: PlatformType = PlatformType.Android,
     val marketName: MarketName = MarketName.Cafebazaar,
     val name: String = "",

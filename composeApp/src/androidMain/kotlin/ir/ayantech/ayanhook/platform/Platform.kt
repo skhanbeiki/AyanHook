@@ -1,10 +1,10 @@
 package ir.ayantech.ayanhook.platform
 
 import ir.ayantech.ayanhook.BuildConfig
-import ir.ayantech.ayanhook.platform.model.PlatformDate
+import ir.ayantech.ayanhook.platform.model.PlatformData
 import ir.ayantech.ayanhook.platform.model.PlatformType
 
-fun androidPlatform(): PlatformDate {
+fun androidPlatform(): PlatformData {
     val platform: PlatformType = PlatformType.Android
     var name = ""
 
@@ -87,7 +87,7 @@ fun androidPlatform(): PlatformDate {
         }
     }
 
-    return PlatformDate(
+    return PlatformData(
         platform = platform,
         name = name,
         applicationNameForPishkhan = applicationNameForPishkhan,

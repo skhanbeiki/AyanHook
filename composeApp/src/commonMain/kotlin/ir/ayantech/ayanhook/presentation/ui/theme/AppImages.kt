@@ -1,12 +1,9 @@
 package ir.ayantech.ayanhook.presentation.ui.theme
 
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.painter.Painter
 import ayanhook.composeapp.generated.resources.Res
 import ayanhook.composeapp.generated.resources.ic_gas_logo
 import ayanhook.composeapp.generated.resources.ic_water_logo
 import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
 
 object AppImages {
 

@@ -20,7 +20,6 @@ import ir.ayantech.ayanhook.presentation.ui.util.LanguageManager
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
-
 @Composable
 @Preview
 fun App() {
@@ -31,7 +30,7 @@ fun App() {
 
     if (language == null) return
 
-    val isRtl = LanguageManager.currentLanguage == AppLanguage.FA
+    val isRtl = (LanguageManager.currentLanguage == AppLanguage.FA)
     val layoutDirection = if (isRtl) LayoutDirection.Rtl else LayoutDirection.Ltr
 
     CompositionLocalProvider(LocalLayoutDirection provides layoutDirection) {

@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ConfigData(
-    val platform: PlatformDate = PlatformDate(),
+    val platform: PlatformData = PlatformData(),
     val colors: PlatformColor = PlatformColor(),
     val strings: PlatformStrings = PlatformStrings(),
     val images: PlatformImage = PlatformImage(),

@@ -1,9 +1,9 @@
 package ir.ayantech.ayanhook.platform
 
-import ir.ayantech.ayanhook.platform.model.PlatformDate
+import ir.ayantech.ayanhook.platform.model.PlatformData
 import ir.ayantech.ayanhook.platform.model.PlatformType
 
-fun jsPlatform(): PlatformDate {
+fun jsPlatform(): PlatformData {
     val platform: PlatformType = PlatformType.Web
     var name = ""
 
@@ -17,7 +17,7 @@ fun jsPlatform(): PlatformDate {
     var versionControllingBaseUrl = ""
     var pushNotificationUrl = ""
 
-    return PlatformDate(
+    return PlatformData(
         platform = platform,
         name = name,
         applicationNameForPishkhan = applicationNameForPishkhan,

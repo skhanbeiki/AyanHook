@@ -1,7 +1,7 @@
 package ir.ayantech.ayanhook.platform
 
-import ir.ayantech.ayanhook.platform.model.PlatformDate
+import ir.ayantech.ayanhook.platform.model.PlatformData
 
-expect fun getPlatform(): PlatformDate
+expect fun getPlatform(): PlatformData
 
 
