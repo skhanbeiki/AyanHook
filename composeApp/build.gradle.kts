@@ -76,6 +76,7 @@ kotlin {
 
             implementation(libs.arrow.core)
             implementation(libs.arrow.fx.coroutines)
+//            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
         }
 
         iosMain.dependencies {

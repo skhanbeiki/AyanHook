@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -25,27 +26,32 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.koin.koinScreenModel
 import ir.ayantech.ayanhook.presentation.ui.components.InputField
 import ir.ayantech.ayanhook.presentation.ui.components.PrimaryButton
 import ir.ayantech.ayanhook.presentation.ui.theme.AppColors
 import ir.ayantech.ayanhook.presentation.ui.theme.AppImages
 import ir.ayantech.ayanhook.presentation.ui.theme.AppStrings
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 class InquiryScreen() : Screen {
 
     @Composable
     override fun Content() {
+        val viewModel = koinScreenModel<InquiryViewModel>()
+        val uiState by viewModel.state.collectAsState()
+
         ContentPreview()
     }
 
     @Composable
     @Preview
     fun ContentPreview() {
-
+        println("ogvqihqjegnow  ContentPreview")
         Scaffold(
             modifier = Modifier.fillMaxSize(),
-            containerColor = AppColors.background,
+            containerColor = AppColors.primary,
         ) {
             Column(
                 modifier = Modifier.fillMaxSize()
@@ -58,7 +64,7 @@ class InquiryScreen() : Screen {
                     verticalArrangement = Arrangement.Center
                 ) {
                     Image(
-                        painter = AppImages.logo,
+                        painter = painterResource(AppImages.logo),
                         contentDescription = "Logo",
                         modifier = Modifier.size(72.dp)
                     )

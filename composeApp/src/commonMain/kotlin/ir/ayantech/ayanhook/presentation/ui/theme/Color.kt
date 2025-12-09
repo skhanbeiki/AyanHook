@@ -11,5 +11,5 @@ object AppColors {
     val black = Color.Black
     val transparent = Color(0xFFFFFFFF)
     var grey_3 = Color(0xFF616161)
-    var grey_1 = Color(0xFF9A090B)
+    var green = Color(0xFF136A01)
 }

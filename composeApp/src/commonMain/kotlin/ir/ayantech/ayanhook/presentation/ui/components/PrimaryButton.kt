@@ -46,7 +46,7 @@ fun PrimaryButton(
         colors = ButtonDefaults.buttonColors(
             containerColor = AppColors.primary,
             contentColor = AppColors.white,
-            disabledContainerColor = AppColors.grey_1
+            disabledContainerColor = AppColors.green
         )
     ) {
         Text(

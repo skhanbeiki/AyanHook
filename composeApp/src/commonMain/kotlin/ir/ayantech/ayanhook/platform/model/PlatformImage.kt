@@ -6,4 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PlatformImage(
     val logo: String = "",
+    val background: String = "",
 )

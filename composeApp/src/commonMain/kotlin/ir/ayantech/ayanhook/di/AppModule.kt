@@ -15,11 +15,14 @@ import org.koin.dsl.module
 
 val appModule = module {
     single { ConfigProject() }
+//    single<ConfigData>(createdAtStart = true) {
+//        get<ConfigProject>().getConfigProject()
+//    }
     single { PreferenceDataStoreHelper(get()) }
     single<PreferenceStorage> { get() }
     single { KtorAuthApi(get()) as AuthApi }
     single<AuthRepository> { AuthRepositoryImpl(get(), get()) }
-    factory { LoginUseCase(get()) }
-    factory { LoginViewModel(get(), Dispatchers.Default) }
-    factory { InquiryViewModel(get(), get(), Dispatchers.Default) }
+    factory { LoginUseCase(repository = get()) }
+    factory { LoginViewModel(loginUseCase = get(), ioDispatcher = Dispatchers.Default) }
+    factory { InquiryViewModel(configProject = get(), ioDispatcher = Dispatchers.Default) }
 }
