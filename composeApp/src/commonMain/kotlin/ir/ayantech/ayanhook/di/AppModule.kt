@@ -7,10 +7,12 @@ import ir.ayantech.ayanhook.data.datasource.remote.auth.KtorAuthApi
 import ir.ayantech.ayanhook.data.repository.AuthRepositoryImpl
 import ir.ayantech.ayanhook.domain.repository.AuthRepository
 import ir.ayantech.ayanhook.domain.usecase.auth.LoginUseCase
+import ir.ayantech.ayanhook.platform.AppViewModel
 import ir.ayantech.ayanhook.platform.ConfigProject
 import ir.ayantech.ayanhook.presentation.features.inquiry.InquiryViewModel
 import ir.ayantech.ayanhook.presentation.features.login.LoginViewModel
 import kotlinx.coroutines.Dispatchers
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -18,7 +20,8 @@ val appModule = module {
 //    single<ConfigData>(createdAtStart = true) {
 //        get<ConfigProject>().getConfigProject()
 //    }
-    single { PreferenceDataStoreHelper(get()) }
+    single { PreferenceDataStoreHelper(storage = get()) }
+    viewModel { AppViewModel(configProject = get(), prefHelper = get()) }
     single<PreferenceStorage> { get() }
     single { KtorAuthApi(get()) as AuthApi }
     single<AuthRepository> { AuthRepositoryImpl(get(), get()) }

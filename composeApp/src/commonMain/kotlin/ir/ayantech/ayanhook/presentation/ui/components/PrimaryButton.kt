@@ -50,7 +50,7 @@ fun PrimaryButton(
         )
     ) {
         Text(
-            text = AppStrings.inquiry.fa,
+            text = AppStrings.inquiry.current,
             style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center,
             color = if (isValid) AppColors.black else AppColors.white

@@ -79,7 +79,7 @@ fun InputField(
             if (inputText.isEmpty()) {
                 Text(
                     modifier = Modifier.wrapContentSize(),
-                    text = AppStrings.nationalCode.fa,
+                    text = AppStrings.nationalCode.current,
                     color = AppColors.grey_3,
                     fontSize = 14.sp,
                     style = MaterialTheme.typography.bodySmall,

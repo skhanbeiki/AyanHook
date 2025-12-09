@@ -23,7 +23,7 @@ fun formatPrice(price: Long): String {
         }
     }
 
-    return sb.reverse().toString() + AppStrings.rial.fa
+    return sb.reverse().toString() + AppStrings.rial.current
 }
 
 fun parseSimpleHtml(html: String): String {

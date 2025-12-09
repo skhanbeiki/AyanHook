@@ -71,7 +71,7 @@ class InquiryScreen() : Screen {
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         modifier = Modifier.fillMaxWidth(),
-                        text = AppStrings.title.fa,
+                        text = AppStrings.title.current,
                         color = AppColors.white,
                         style = MaterialTheme.typography.bodyLarge,
                         textAlign = TextAlign.Center,
@@ -80,7 +80,7 @@ class InquiryScreen() : Screen {
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         modifier = Modifier.fillMaxWidth(),
-                        text = AppStrings.description.fa,
+                        text = AppStrings.description.current,
                         color = AppColors.white,
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center,
@@ -99,7 +99,7 @@ class InquiryScreen() : Screen {
                 ) {
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = AppStrings.string1.fa,
+                        text = AppStrings.string1.current,
                         color = AppColors.black,
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Start,

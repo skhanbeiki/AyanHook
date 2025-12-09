@@ -23,8 +23,11 @@ class ConfigProject {
         BaseData.versionControllingBaseUrl = platform.versionControllingBaseUrl
         BaseData.pushNotificationUrl = platform.pushNotificationUrl
 
-        println("ogvqihqjegnow  "+platform.name)
-        val config = Json.decodeFromString<ConfigData>(loadJsonFile(platform.name))
+        val configJson = Json {
+            ignoreUnknownKeys = true
+        }
+        val config = configJson.decodeFromString<ConfigData>(loadJsonFile(platform.name))
+
         AppColors.primary = config.colors.primary
         AppColors.background = config.colors.background
         AppColors.textPrimary = config.colors.textPrimary
@@ -34,7 +37,6 @@ class ConfigProject {
 
         AppImages.logo(config.images.logo)
 
-        println("ogvqihqjegnow  ConfigProject")
         return config
     }
 }
