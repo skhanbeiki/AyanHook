@@ -74,8 +74,10 @@ kotlin {
             implementation(libs.voyager.koin)
             implementation(libs.voyager.transitions)
 
-            implementation(libs.arrow.core)
-            implementation(libs.arrow.fx.coroutines)
+            implementation("androidx.compose.foundation:foundation:1.9.0")
+
+//            implementation(libs.arrow.core)
+//            implementation(libs.arrow.fx.coroutines)
 //            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
         }
 

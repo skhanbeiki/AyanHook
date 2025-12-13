@@ -21,7 +21,7 @@ val appModule = module {
 //        get<ConfigProject>().getConfigProject()
 //    }
     single { PreferenceDataStoreHelper(storage = get()) }
-    single<PreferenceStorage> { get() }
+//    single<PreferenceStorage> { get() }
     viewModel { AppViewModel(configProject = get(), prefHelper = get()) }
     single { KtorAuthApi(get()) as AuthApi }
     single<AuthRepository> { AuthRepositoryImpl(get(), get()) }
